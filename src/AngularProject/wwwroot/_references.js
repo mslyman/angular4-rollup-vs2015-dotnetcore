@@ -8,7 +8,6 @@
 /// <reference path="js/bare-spa/rollup-config.js" />
 /// <reference path="js/bare-spa/systemjs.config.js" />
 /// <reference path="js/site.js" />
-/// <reference path="jss/bare-spa/bundle.js" />
 /// <reference path="jss/lib/bootstrap.min.js" />
 /// <reference path="jss/lib/jquery.min.js" />
 /// <reference path="jss/lib/shimzone.js" />
