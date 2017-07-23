@@ -49,15 +49,17 @@ namespace AngularProject
             {
                 app.UseExceptionHandler("/Home/Error");
             }
-
-            //app.UseFileServer(new FileServerOptions()
-            //{
-            //    FileProvider = new PhysicalFileProvider(
-            //        Path.Combine(Directory.GetCurrentDirectory(), @"node_modules")),
-            //    RequestPath = new PathString("/node_modules"),
-            //    EnableDirectoryBrowsing = true
-            //});
-
+            if (env.IsDevelopment())
+            {
+                app.UseFileServer(new FileServerOptions()
+                {
+                    FileProvider = new PhysicalFileProvider(
+                        Path.Combine(Directory.GetCurrentDirectory(), @"node_modules")),
+                    RequestPath = new PathString("/node_modules"),
+                    EnableDirectoryBrowsing = true
+                });
+            }
+                        
             app.UseStaticFiles();
 
             app.UseMvc(routes =>
