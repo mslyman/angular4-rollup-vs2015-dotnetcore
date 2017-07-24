@@ -27,7 +27,7 @@ move $(PATH) on top
 ```
 git clone https://github.com/mslyman/angular4-rollup-vs2015-dotnetcore.git
 
-open .sln in MS Visual Studio 2015 
+Run MS Visual Studio 2015 as admin, open .sln
 
 Wait for packages downloaded
 ```
