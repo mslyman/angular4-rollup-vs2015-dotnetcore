@@ -1,8 +1,6 @@
 # angular4-rollup-vs2015-dotnetcore 
 
-## Getting started on windows
-
-Prerequisites
+## Prerequisites
 ```
 Install Visual Studio 2015 with External web tools.
 Install TypeScript 2.x.x for Visual Studio 2015 (https://www.microsoft.com/en-us/download/details.aspx?id=48593)
