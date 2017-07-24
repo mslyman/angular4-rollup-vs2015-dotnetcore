@@ -1,24 +1,31 @@
 # angular4-rollup-vs2015-dotnetcore 
 
 ## Getting started on windows
+
+Prerequisites
+```
 Install Visual Studio 2015 with External web tools.
 Install TypeScript 2.x.x for Visual Studio 2015 (https://www.microsoft.com/en-us/download/details.aspx?id=48593)
 Install git (https://git-scm.com/download/win), node.js (with npm).
-run cmd, path must contain:
+
+Run cmd, path must contain:
+
 C:\Program Files\Git\cmd
 C:\Program Files\nodejs\
 C:\Users\<username>\AppData\Roaming\npm;
 
 Check versions:
-```
+
 node -v
 v6.10.1
 npm -v
 3.10.10
-```
+
 Go to Tools –> Options –> Projects and Solutions –> External Web Tools.
 move $(PATH) on top
+```
 
+## Install
 ```
 git clone https://github.com/mslyman/angular4-rollup-vs2015-dotnetcore.git
 
