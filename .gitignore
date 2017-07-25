@@ -4,7 +4,9 @@
 /**/node_modules
 /**/wwwroot/lib
 /**/wwwroot/aot
+/**/wwwroot/tmp-deploy
 /**/wwwroot/jss
+
 /**/bower_components
 /**/bin
 /**/obj

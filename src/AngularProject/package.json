@@ -4,7 +4,11 @@
   "license": "",
   "scripts": {
     "build_": "node_modules/.bin/ngc -p tsconfig-aot.json && node_modules/.bin/rollup -c wwwroot/js/bare-spa/rollup-config.js",
-    "build": "ngc -p tsconfig-aot.json && rollup -c wwwroot/js/bare-spa/rollup-config.js"
+	"build__": "node_modules/.bin/tsc -p wwwroot/js/rxjstest/tsconfig-deploy.json && node_modules/.bin/rollup -c wwwroot/js/rxjstest/rollup-config.js",
+	
+	"build": "npm run bare-spa && npm run rxjstest",
+	"bare-spa": "ngc -p tsconfig-aot.json && rollup -c wwwroot/js/bare-spa/rollup-config.js",
+	"rxjstest": "tsc -p wwwroot/js/rxjstest/tsconfig-deploy.json && rollup -c wwwroot/js/rxjstest/rollup-config.js"
   },
   "dependencies": {
     "@angular/common": "~4.3.1",

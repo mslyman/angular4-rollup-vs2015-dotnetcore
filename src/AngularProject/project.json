@@ -51,16 +51,14 @@
 
   "publishOptions": {
     "include": [
-      "wwwroot",
+      "wwwroot/jss",
+      "wwwroot/images",
+      "wwwroot/favicon.ico",
       "**/*.cshtml",
       "appsettings.json",
       "web.config"
     ],
     "exclude": [
-      "wwwroot/aot",
-      "wwwroot/js",
-      "wwwroot/css",
-      "wwwroot/lib",
       "_references.js"
     ]
   },

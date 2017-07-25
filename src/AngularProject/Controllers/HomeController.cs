@@ -13,6 +13,11 @@ namespace AngularProject.Controllers
             return View();
         }
 
+        public IActionResult RxJsTest()
+        {
+            return View();
+        }
+
         public IActionResult Error()
         {
             return View();
