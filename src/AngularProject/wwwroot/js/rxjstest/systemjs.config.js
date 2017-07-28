@@ -4,14 +4,17 @@
             'npm:': '/node_modules/'
         },
         map: {
+            src: '/js',
             app: '/js/rxjstest/',
             //'rxjs': '/node_modules/@reactivex/rxjs/dist/cjs'
-            'rxjs': '/node_modules/rxjs'  //ok
+            'rxjs': '/node_modules/rxjs'
         },
         packages: {
-            app: {
-                main: './main.js', 
+            src:{
                 defaultExtension: 'js'
+            },
+            app: {
+                main: './main.js'
             },
             rxjs: {
                 defaultExtension: 'js'
