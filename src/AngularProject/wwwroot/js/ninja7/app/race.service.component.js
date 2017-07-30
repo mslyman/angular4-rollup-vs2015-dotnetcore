@@ -10,15 +10,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var race_service_1 = require("./race.service");
-//import { LogService } from './log.service';
 var RacesComponent = (function () {
-    function RacesComponent(raceService) {
-        this.raceService = raceService;
+    function RacesComponent() {
     }
-    RacesComponent.prototype.ngOnInit = function () {
-        this.races2 = this.raceService.list();
-    };
     return RacesComponent;
 }());
 __decorate([
@@ -29,8 +23,7 @@ RacesComponent = __decorate([
     core_1.Component({
         selector: 'ns-races',
         styles: ['.odd {background-color:#ccc;}'],
-        template: "<div *ngIf=\"races && races.length > 0\">\n\u00A0 <h2>- Races -</h2>\n\u00A0 <ul>\n\u00A0  <li *ngFor=\"let race of races2; let i=index; let o=odd\" [class.odd]=\"o\">\n        <span [id]=\"i\">{{i}} - {{race.name}}</span>\n    </li>\n\u00A0 </ul>\n\u00A0 </div>",
-    }),
-    __metadata("design:paramtypes", [race_service_1.RaceService])
+        template: "<div *ngIf=\"races && races.length > 0\">\n\u00A0 <h2>- Races -</h2>\n\u00A0 <ul>\n\u00A0  <li *ngFor=\"let race of races; let i=index; let o=odd\" [class.odd]=\"o\">\n        <span [id]=\"i\">{{i}} - {{race.name}}</span>\n    </li>\n\u00A0 </ul>\n\u00A0 </div>"
+    })
 ], RacesComponent);
 exports.RacesComponent = RacesComponent;

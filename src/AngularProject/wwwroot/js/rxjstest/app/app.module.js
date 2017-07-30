@@ -36,6 +36,18 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 var _this = this;
 Object.defineProperty(exports, "__esModule", { value: true });
+require("rxjs/observable/dom/ajax");
+require("rxjs/add/observable/of");
+require("rxjs/add/observable/from");
+require("rxjs/add/observable/fromPromise");
+require("rxjs/add/observable/interval");
+require("rxjs/add/operator/map");
+require("rxjs/add/operator/distinct");
+require("rxjs/add/operator/distinctUntilChanged");
+require("rxjs/add/operator/reduce");
+require("rxjs/add/operator/scan");
+require("rxjs/add/operator/take");
+require("rxjs/add/operator/takeWhile");
 //let currentNameSubject = new BehaviorSubject('Eric');
 //currentNameSubject.subscribe((val: string) => {
 //    console.log(val);

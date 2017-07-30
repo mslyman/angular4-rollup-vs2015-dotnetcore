@@ -1,5 +1,7 @@
-﻿import { Component, Input } from '@angular/core';
+﻿import { Component, Input, OnInit } from '@angular/core';
+import { RaceService } from "./race.service";
 
+//import { LogService } from './log.service';
 
 @Component({
     selector: 'ns-races',
@@ -7,16 +9,25 @@
     template: `<div *ngIf="races && races.length > 0">
   <h2>- Races -</h2>
   <ul>
-   <li *ngFor="let race of races; let i=index; let o=odd" [class.odd]="o">
+   <li *ngFor="let race of races2; let i=index; let o=odd" [class.odd]="o">
         <span [id]="i">{{i}} - {{race.name}}</span>
     </li>
   </ul>
-  </div>`
+  </div>`,
+    //providers: [RaceService, LogService]
 })
-export class RacesComponent {
+export class RacesComponent implements OnInit {
+    
+    constructor(private raceService: RaceService) {
+        
+    }
+    ngOnInit() {
+        this.races2 = this.raceService.list();
+    }
 
 
     @Input()   
     races: Array<any>;
 
+    races2: any; 
 }

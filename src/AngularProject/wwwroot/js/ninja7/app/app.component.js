@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+//import { RaceService } from './race.service';
 var AppComponent = (function () {
     function AppComponent() {
         //setTimeout(() => this.isPonySelected = false, 2000);
@@ -25,13 +26,16 @@ var AppComponent = (function () {
     AppComponent.prototype.getRaces = function () {
         return [{ name: 'London' }, { name: 'Lyon' }];
     };
+    AppComponent.prototype.list = function () {
+        ///return this.raceService.list();
+    };
     return AppComponent;
 }());
 AppComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
         selector: 'ponyracer-app',
-        template: "\n<h1 [innerText]=\"myname\"></h1>\n<ns-races [races]=\"getRaces()\"></ns-races>\n"
+        template: "\n<h1 [innerText]=\"myname\"></h1>\n<ns-races [races]=\"getRaces()\"></ns-races>\n",
     }),
     __metadata("design:paramtypes", [])
 ], AppComponent);

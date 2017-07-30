@@ -14,4 +14,4 @@ export class PoniesComponent {
     refreshPonies() {
         this.ponies = [{ name: 'Fluttershy' }, { name: 'Rarity' }];
     }
-}
+}
