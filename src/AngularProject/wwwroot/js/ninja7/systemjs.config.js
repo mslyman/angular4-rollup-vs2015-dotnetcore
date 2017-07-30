@@ -1,6 +1,7 @@
 (function (global) {
     System.config({
         //transpiler: false,
+        //https://groups.google.com/forum/?hl=en#!topic/traceur-compiler-discuss/Giapl85Y7J8
         paths: {
             // псевдоним для пути к модулям
             'npm:': '/node_modules/'
