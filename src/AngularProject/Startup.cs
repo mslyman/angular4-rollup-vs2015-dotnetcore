@@ -32,6 +32,7 @@ namespace AngularProject
         {
             // Add framework services.
             services.AddMvc();
+            services.AddResponseCompression();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -39,7 +40,7 @@ namespace AngularProject
         {
             //loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             //loggerFactory.AddDebug();
-
+            app.UseResponseCompression();
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -60,7 +61,17 @@ namespace AngularProject
                 });
             }
                         
-            app.UseStaticFiles();
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                OnPrepareResponse = content =>
+                {
+                    if (content.File.Name.EndsWith(".js.gz"))
+                    {
+                        content.Context.Response.Headers["Content-Type"] = "text/javascript";
+                        content.Context.Response.Headers["Content-Encoding"] = "gzip";
+                    }
+                }
+            });
 
             app.UseMvc(routes =>
             {
