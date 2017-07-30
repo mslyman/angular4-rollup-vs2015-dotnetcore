@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Angular";
+}
+@section head{
+    <environment names="Development">
+        <script src="~/node_modules/core-js/client/shim.min.js" asp-append-version="true"></script>
+        <script src="~/node_modules/zone.js/dist/zone.min.js" asp-append-version="true"></script>
+        <script src="~/node_modules/systemjs/dist/system.js" asp-append-version="true"></script>
+        <script src="~/js/ninja7/systemjs.config.js" asp-append-version="true"></script>
+        <script>
+          System.import('app').catch(function(err){ console.error(err); });
+        </script>
+    </environment>
+    <environment names="Staging,Production">
+        <script type="text/javascript">window.module={};</script>
+        <script src="~/jss/lib/shimzone.js" asp-append-version="true"></script>   
+    </environment>
+}
+
+<ponyracer-app>_Loading...</ponyracer-app>
+
+@section scripts{
+    <environment names="Development">
+    </environment>
+    <environment names="Staging,Production">
+        <script src="~/jss/ninja7/bundle.js" asp-append-version="true"></script>
+    </environment>
+}

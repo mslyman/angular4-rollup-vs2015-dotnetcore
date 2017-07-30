@@ -43,7 +43,7 @@ namespace AngularProject
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                //app.UseBrowserLink();
+                //app.UseBrowserLink();  // live reload in debug
             }
             else
             {
