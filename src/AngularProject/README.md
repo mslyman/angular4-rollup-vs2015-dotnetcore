@@ -22,3 +22,11 @@ Deploy project in MS Visual Studio 2015
 
 ## Source
 - [ ] https://angular.io/guide/aot-compiler
+
+## Troubleshooting
+- [ ] in tsconfig.json  "removeComments": true (SystemJS bug)
+```
+/* 
+import { Observable } from 'rxjs/Observable';
+*/
+```

@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
-//import { RaceService } from './race.service';
+//import { RaceService } from './race.service';
+
 @Component({
 	moduleId: module.id, 
     selector: 'ponyracer-app',
@@ -28,5 +29,6 @@ export class AppComponent {
     }
     list() {
         ///return this.raceService.list();
-    }
+    }
+
 }

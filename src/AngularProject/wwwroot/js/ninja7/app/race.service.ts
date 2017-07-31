@@ -1,30 +1,36 @@
-﻿//import { Http } from 'myutils/http';
-import { Injectable } from '@angular/core';
-//import { Http } from '@angular/http';
-//import { HttpClient } from '@angular/common/http';
-import { test1 } from './http1';
-import { LogService } from './log.service';
+﻿import { Injectable } from '@angular/core';
+import { test1, Http } from '../../utils/http';  // my
+import { HttpClient } from '@angular/common/http';  // standart
+import { LogService } from '../utils/log.service';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/from';
 import 'rxjs/add/operator/map';
-//import 'rxjs/add/observable/toPromise';
 
 @Injectable()
 export class RaceService {
     //private http: Http;
-    constructor(private logService: LogService) {
+    constructor(private logService: LogService, private httpMy: Http, private http: HttpClient) {
         //this.http = Http;
     }
 
-    list() {
+    list<T>() {
         this.logService.write("logger: get data...");
+
+        this.http.get('/ninja/races').subscribe(data => {
+            console.log(data);
+        });
+    
+
         //var p = Http.Get('/ninja/races').promise;
         //return Observable.fromPromise(p);
-        //Http.Get('/ninja/races');
+        //this.http.Get('/ninja/races');
         var xx = test1;
-
-        return [{ name: 'test1'}, {name: 'test2'}];
-
+        var p = this.httpMy.get<T>('/ninja/races');
+        var pp = p.promise;
+        //console.log(pp);
+        //pp.then(d => console.log(d));
+        //return [{ name: 'test1'}, {name: 'test2'}];
+        return pp;
 
            // .then(x => { return x });
     }

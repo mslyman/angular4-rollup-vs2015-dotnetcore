@@ -10,7 +10,6 @@
 /// <reference path="js/ninja7/app/app.component.js" />
 /// <reference path="js/ninja7/app/app.module.js" />
 /// <reference path="js/ninja7/app/http1.js" />
-/// <reference path="js/ninja7/app/log.service.js" />
 /// <reference path="js/ninja7/app/ponies.component.js" />
 /// <reference path="js/ninja7/app/race.service.component.js" />
 /// <reference path="js/ninja7/app/race.service.js" />

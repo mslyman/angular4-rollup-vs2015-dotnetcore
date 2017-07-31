@@ -9,34 +9,32 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-//import { Http } from 'myutils/http';
 var core_1 = require("@angular/core");
-//import { Http } from '@angular/http';
-//import { HttpClient } from '@angular/common/http';
-var http1_1 = require("./http1");
-var log_service_1 = require("./log.service");
+var http_1 = require("../../utils/http");
+var http_2 = require("@angular/common/http");
+var log_service_1 = require("../utils/log.service");
 require("rxjs/add/observable/from");
 require("rxjs/add/operator/map");
-//import 'rxjs/add/observable/toPromise';
 var RaceService = (function () {
-    //private http: Http;
-    function RaceService(logService) {
+    function RaceService(logService, httpMy, http) {
         this.logService = logService;
-        //this.http = Http;
+        this.httpMy = httpMy;
+        this.http = http;
     }
     RaceService.prototype.list = function () {
         this.logService.write("logger: get data...");
-        //var p = Http.Get('/ninja/races').promise;
-        //return Observable.fromPromise(p);
-        //Http.Get('/ninja/races');
-        var xx = http1_1.test1;
-        return [{ name: 'test1' }, { name: 'test2' }];
-        // .then(x => { return x });
+        this.http.get('/ninja/races').subscribe(function (data) {
+            console.log(data);
+        });
+        var xx = http_1.test1;
+        var p = this.httpMy.get('/ninja/races');
+        var pp = p.promise;
+        return pp;
     };
     return RaceService;
 }());
 RaceService = __decorate([
     core_1.Injectable(),
-    __metadata("design:paramtypes", [log_service_1.LogService])
+    __metadata("design:paramtypes", [log_service_1.LogService, http_1.Http, http_2.HttpClient])
 ], RaceService);
 exports.RaceService = RaceService;

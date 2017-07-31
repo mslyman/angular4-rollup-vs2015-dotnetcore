@@ -11,13 +11,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var race_service_1 = require("./race.service");
-//import { LogService } from './log.service';
 var RacesComponent = (function () {
     function RacesComponent(raceService) {
         this.raceService = raceService;
     }
     RacesComponent.prototype.ngOnInit = function () {
-        this.races2 = this.raceService.list();
+        var _this = this;
+        setTimeout(function () {
+            _this.raceService.list().then(function (d) { return _this.races2 = d; });
+        }, 1000);
     };
     return RacesComponent;
 }());

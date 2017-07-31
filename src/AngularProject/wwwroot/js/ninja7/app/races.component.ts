@@ -1,7 +1,11 @@
 ﻿import { Component, Input, OnInit } from '@angular/core';
 import { RaceService } from "./race.service";
-
+//import { test1 } from './http1';
 //import { LogService } from './log.service';
+
+interface IRace {
+    name: string;
+}
 
 @Component({
     selector: 'ns-races',
@@ -17,17 +21,18 @@ import { RaceService } from "./race.service";
     //providers: [RaceService, LogService]
 })
 export class RacesComponent implements OnInit {
-    
+    @Input()
+    races: Array<any>; // from parent component
+
+    races2: IRace[]; // from service
+
     constructor(private raceService: RaceService) {
         
     }
     ngOnInit() {
-        this.races2 = this.raceService.list();
+        setTimeout(() => {
+            this.raceService.list<IRace[]>().then(d => this.races2 = d);
+        }, 1000);       
     }
-
-
-    @Input()   
-    races: Array<any>;
-
-    races2: any; 
+    
 }

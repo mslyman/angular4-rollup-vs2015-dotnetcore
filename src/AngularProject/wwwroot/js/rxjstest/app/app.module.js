@@ -48,14 +48,6 @@ require("rxjs/add/operator/reduce");
 require("rxjs/add/operator/scan");
 require("rxjs/add/operator/take");
 require("rxjs/add/operator/takeWhile");
-//let currentNameSubject = new BehaviorSubject('Eric');
-//currentNameSubject.subscribe((val: string) => {
-//    console.log(val);
-//    dv.innerHTML += `<p>${val}</p>`;
-//})
-//currentNameSubject.next('Obama');
-//currentNameSubject.next('Donald');
-//var list: NodeList = dv.getElementsByTagName('p');
 var time = 1000;
 var delay = function (time) { return new Promise(function (resolve) { return setTimeout(resolve, time); }); };
 function sleepRandom(time) {
@@ -90,11 +82,11 @@ function sleepError(time, msg) {
         switch (_e.label) {
             case 0:
                 _e.trys.push([0, 4, , 5]);
-                console.log('Run'); // => Run
+                console.log('Run');
                 _b = (_a = console).log;
                 return [4 /*yield*/, sleepRandom(5)];
             case 1:
-                _b.apply(_a, [_e.sent()]); // => 936, after 5 sec.
+                _b.apply(_a, [_e.sent()]);
                 return [4 /*yield*/, Promise.all([
                         sleepRandom(5),
                         sleepRandom(15),
@@ -102,7 +94,7 @@ function sleepError(time, msg) {
                     ])];
             case 2:
                 _d = _e.sent(), a = _d[0], b = _d[1], c = _d[2];
-                console.log(a, b, c); // => 210 445 71, after 15 sec.
+                console.log(a, b, c);
                 return [4 /*yield*/, sleepError(5, 'Irror!')];
             case 3:
                 _e.sent();
@@ -110,7 +102,7 @@ function sleepError(time, msg) {
                 return [3 /*break*/, 5];
             case 4:
                 e_1 = _e.sent();
-                console.log(e_1); // => Error: 'Irror!', after 5 sec.
+                console.log(e_1);
                 return [3 /*break*/, 5];
             case 5: return [2 /*return*/];
         }

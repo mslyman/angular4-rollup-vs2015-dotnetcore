@@ -17,6 +17,8 @@ namespace AngularProject.Controllers
         [HttpGet]
         public List<Race> Races()
         {
+
+
             return new List<Race>()
             {
                 new Race("Test A"),
@@ -33,7 +35,7 @@ namespace AngularProject.Controllers
 
         public Race(string name)
         {
-            this.Name = Name;
+            this.Name = name;
         }
     }
 }

@@ -10,10 +10,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-//import { RaceService } from './race.service';
 var AppComponent = (function () {
     function AppComponent() {
-        //setTimeout(() => this.isPonySelected = false, 2000);
         this.myname = "Mike3";
         this.isPonySelected = true;
     }
@@ -27,7 +25,6 @@ var AppComponent = (function () {
         return [{ name: 'London' }, { name: 'Lyon' }];
     };
     AppComponent.prototype.list = function () {
-        ///return this.raceService.list();
     };
     return AppComponent;
 }());

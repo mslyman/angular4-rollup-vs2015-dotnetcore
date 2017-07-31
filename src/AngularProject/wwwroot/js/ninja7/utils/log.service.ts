@@ -1,7 +1,5 @@
-﻿export class LogService {
-
+﻿export class LogService {    
     write(logMessage: string) {
-
         console.log(logMessage);
-    }
+    }    
 }

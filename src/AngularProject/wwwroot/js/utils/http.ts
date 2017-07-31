@@ -1,13 +1,25 @@
-﻿export class Http {
+﻿interface IRequestResult<T> {
+    promise: Promise<T>,
+    xhr: XMLHttpRequest
+}
 
-    public static Get(url: string, data?: object, headers?: any[]) {
-        url = Http.assignUrlParameters(url, data);
-        return Http.Request('GET', url, data, headers);
+
+
+export var test1 = "test#1";
+
+export class Http {
+    public get<T>(url: string, data?: object, headers?: any[]): IRequestResult<T> {
+        url = this.assignUrlParameters(url, data);
+        return this.request<T>('GET', url, data, headers);
     }
 
-    public static assignUrlParameters(url: string, data?: object): string {
+    public post<T>(url: string, data?: object, headers?: any[]) {
+        return this.request<T>('POST', url, data, headers);
+    }
+
+    public assignUrlParameters(url: string, data?: object): string {
         if (data) {
-            var p = Http.getUrlParameters(url);
+            var p = this.getUrlParameters(url);
             Object.keys(data).forEach(key => {
                 key = key.toLowerCase();
                 p[key] = data[key];
@@ -27,7 +39,7 @@
         return url;
     }
 
-    public static getUrlParameters(url: string): object {
+    public getUrlParameters(url: string): object {
         var q = url.split('?').pop();
         var chunks = q.split('&'),
             obj = {};
@@ -38,11 +50,7 @@
         return obj;
     }
 
-    public static Post(url: string, data?: object, headers?: any[]) {
-        return Http.Request('POST', url, data, headers);
-    }
-
-    public static Request(method: string, url: string, data?: object | string, headers?: object) {
+    public request<T>(method: string, url: string, data?: object | string, headers?: object): IRequestResult<T> {
         headers = headers || {};
         var xhr = new XMLHttpRequest();
         var promise = new Promise(function (resolve, reject) {
@@ -83,14 +91,14 @@
             }
             if (!headers["Content-Type"]) {
                 xhr.setRequestHeader("Content-Type", "application/json");
-                if (typeof data === "object") {
+                if (method !== 'GET' && typeof data === "object") {
                     data = JSON.stringify(data);
                 }
             }
             if (!headers["X-Requested-With"]) {
                 xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
             }
-            if (method === 'POST') {
+            if (method !== 'GET') {
                 xhr.send(data);
             }
             else {
@@ -102,12 +110,16 @@
             xhr: xhr
         }
     }
+
 }
+
+
 
 
 /*
  //   Usage:
-var r = Http.Get(url);
+var http = new Http();
+var r = http.Get(url);
 r
     .promice
     .then(x => console.log(x))
@@ -115,7 +127,7 @@ r
 // Abort request, if needed
 r.xhr.abort();
 // Post
-Http.Post('/Home/TestPost2', { param1: "value1" }).promise.then(x => console.log(x))
+http.Post('/Home/TestPost2', { param1: "value1" }).promise.then(x => console.log(x))
 // Server code
         [HttpPost]
         public BaseResponse TestPost2([FromBody]TestRequest1 request)
@@ -129,7 +141,7 @@ Http.Post('/Home/TestPost2', { param1: "value1" }).promise.then(x => console.log
 // use async
 (async () => {
     console.log('start');
-    var p = Http.Get(url0).promise;
+    var p = http.Get(url0).promise;
     p.then(x => console.log(x));
     await p;
     console.log('end');
@@ -144,7 +156,8 @@ end
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/from';
 import 'rxjs/add/operator/map';
-var promise = Http.Post('/Home/TestPost2x', { param1: "value1" }).promise;
+var http = new Http();
+var promise = http.Post('/Home/TestPost2x', { param1: "value1" }).promise;
 var stream = Observable.fromPromise(promise);
 stream.subscribe(x => console.log(x), x => console.log('error: ' + x), () => console.log('complete')); // on error, complete not called
 */
