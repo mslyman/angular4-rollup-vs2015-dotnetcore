@@ -53,5 +53,5 @@ https://stackoverflow.com/questions/37584520/bootstrap-3-3-6-jquery-2-2-4-versio
 Install Git for Windows
 Delete %USERPROFILE%\AppData\Local\bower
 Restart Visual Studio
-Delete wwwroot/lib and Restore bower packages
+Delete wwwroot/lib and Restore bower packages _
 ```
